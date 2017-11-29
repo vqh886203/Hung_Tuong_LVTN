@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBDSLVTN" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hung\sqlexpress;Initial Catalog=QLBDSLVTN;Integrated Security=True" SettingsObjectName="Hung_Tuong_LVTN.Properties.Settings" SettingsPropertyName="QLBDSLVTNConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BatDongSan" Member="BatDongSans">
+    <Type Name="BatDongSan">
+      <Column Name="bdsid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dientich" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="dongia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="masoqsdd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="hinhanh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="chieudai" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="chieurong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="hoahong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tinhtrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tenduong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="thanhpho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sonha" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="quan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="khid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loaiid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="KhachHang_BatDongSan" Member="KhachHang" ThisKey="khid" OtherKey="khid" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="LoaiBD_BatDongSan" Member="LoaiBD" ThisKey="loaiid" OtherKey="loaiid" Type="LoaiBD" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="nvid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="taikhoan" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="matkhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tennv" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="sdt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="gioitinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="doanhthu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="quyen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="hinh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="NhanVien_KhachHang" Member="KhachHangs" ThisKey="nvid" OtherKey="nvid" Type="KhachHang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="khid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hoten" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="diachitt" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="cmnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="sdt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gioitinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="loaikh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="mota" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="nvid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="KhachHang_BatDongSan" Member="BatDongSans" ThisKey="khid" OtherKey="khid" Type="BatDongSan" />
+      <Association Name="NhanVien_KhachHang" Member="NhanVien" ThisKey="nvid" OtherKey="nvid" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiBDS" Member="LoaiBDs">
+    <Type Name="LoaiBD">
+      <Column Name="loaiid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenloai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LoaiBD_BatDongSan" Member="BatDongSans" ThisKey="loaiid" OtherKey="loaiid" Type="BatDongSan" />
+    </Type>
+  </Table>
+</Database>

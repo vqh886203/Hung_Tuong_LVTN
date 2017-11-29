@@ -1,0 +1,65 @@
+﻿<Window x:Class="Hung_Tuong_LVTN.NVlistKH"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:local="clr-namespace:Hung_Tuong_LVTN"
+        mc:Ignorable="d"
+        Title="NVlistKH" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <dxlc:LayoutGroup Orientation="Vertical" Background="{x:Null}">
+            <dxlc:LayoutGroup View="GroupBox" Header="Thông Tin Cá Nhân :" UseLayoutRounding="True" Background="{x:Null}" >
+
+
+                <dxlc:LayoutGroup >
+                    <dxe:ImageEdit Name="img" IsReadOnly="True"/>
+                </dxlc:LayoutGroup>
+
+
+
+                <dxlc:LayoutGroup  Orientation="Vertical" View="GroupBox" >
+                    <dxlc:LayoutItem  IsRequired="True" Label="- Tên Nhân Viên                :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbname" FontWeight="Normal" ></Label>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="- Ngày Sinh                       :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbngaysinh" FontWeight="Normal"></Label>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="- Giới Tính                         :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbGioiTinh" FontWeight="Normal"></Label>
+
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="- Số Điện Thoại                 :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbsdt" FontWeight="Normal"></Label>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="- E-mail                              :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbemail" FontWeight="Normal"></Label>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="- Doanh Thu Cá Nhân       :" LabelPosition="Left" Margin="0,0,0,2" FontWeight="Bold" FontSize="14">
+                        <Label Name="lbdoanhthu" FontWeight="Normal"></Label>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Header="Danh Sách Khách Hàng Cá Nhân :" Margin="0,2,0,0" Orientation="Vertical" View="GroupBox" UseLayoutRounding="True" >
+
+                <dxg:GridControl x:Name="gridControlkh" SelectionMode="Row"   ItemsSource="{Binding khnc}" >
+                    <dxg:GridColumn FieldName="hoten" Header="Họ Tên"/>
+                    <dxg:GridColumn FieldName="gioitinh" Header="Giới Tính"/>
+                    <dxg:GridColumn FieldName="loaikh" Header="Loại Khách Hàng"/>
+                    <dxg:GridColumn FieldName="sdt" Header="Số Điện Thoại"/>
+                    <dxg:GridColumn FieldName="diachi" Header="Địa Chỉ"/>
+                    <dxg:GridColumn FieldName="email" Header="E-mail"/>
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" AllowEditing="False" AllowGrouping="False" AllowColumnMoving="False" NavigationStyle="Row" AllowFixedGroups="False" ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+
+                </dxg:GridControl>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutGroup>
+    </Grid>
+</Window>

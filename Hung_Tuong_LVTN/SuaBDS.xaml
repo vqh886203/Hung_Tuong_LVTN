@@ -1,0 +1,107 @@
+﻿<Window x:Class="Hung_Tuong_LVTN.SuaBDS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hung_Tuong_LVTN"
+        mc:Ignorable="d"
+        Title="SỬA THÔNG TIN BẤT ĐỘNG SẢN" WindowStartupLocation="CenterScreen" Height="644" Width="700" Name="Windows" Icon="{dx:DXImage Image=Home_16x16.png}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="357*"/>
+            <ColumnDefinition Width="335*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+
+
+        <dxlc:LayoutGroup Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+            <dxlc:LayoutItem HorizontalAlignment="Left" Height="320" Label="Hình Ảnh" LabelPosition="Top" LabelHorizontalAlignment="Center" Margin="0,0,-14,-194" Width="285">
+                <dxe:ImageEdit Name="img" Width="271"/>
+            </dxlc:LayoutItem>
+            <dxlc:LayoutControl Orientation="Vertical" Height="Auto" Margin="10,0,0,0">
+                <dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup x:Name="layoutGroup" Orientation="Vertical" VerticalAlignment="Top">
+                        <dxlc:LayoutItem IsRequired="True" Label="Chiều Dài: " LabelPosition="Top">
+                            <dxe:TextEdit Name="txtDai" MinWidth="200" MaskType="Numeric"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem IsRequired="True" Label="Chiều Rộng:" LabelPosition="Top">
+                            <dxe:TextEdit Name="txtRong" MinWidth="200" MaskType="Numeric"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem IsRequired="True" Label="Đơn Giá: " LabelPosition="Top">
+                            <dxe:TextEdit Name="txtDongia"  MinWidth="200" MaskType="Numeric"/>
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Header="Chi Tiết" Orientation="Vertical" UseLayoutRounding="True" View="GroupBox" Margin="0,5,0,0" >
+                    <dxlc:LayoutItem IsRequired="True" Label="Tình Trạng:">
+                        <dxe:ComboBoxEdit  Name="cboTt" Width="{Binding ElementName=layoutGroup}"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="Sở Hữu Của:">
+                        <dxe:ComboBoxEdit Name="cboKh" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem IsRequired="True" Label="Loại BĐS: ">
+                        <dxe:ComboBoxEdit Name="cboLoai" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem   Label="Hoa Hồng:">
+                        <dxe:TextEdit Name="txtHh" MaskType="Numeric" Width="{Binding ElementName=layoutGroup}"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem  Label="Mã số QSDĐ:">
+                        <dxe:TextEdit Name="txtMsqsdd" Width="{Binding ElementName=layoutGroup}" />
+                    </dxlc:LayoutItem>
+
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutControl>
+        </dxlc:LayoutGroup>
+        <dxlc:LayoutControl Name="layoutGroup2"  Grid.Row="1" Grid.Column="0">
+            <dxlc:LayoutGroup Name="layoutGroup3" Header="Vị Trí" Orientation="Vertical" UseLayoutRounding="True" View="GroupBox">
+                <dxlc:LayoutItem Label="Số Nhà:" VerticalAlignment="Top">
+                    <dxe:TextEdit Name="txtSonha" Width="{Binding ElementName=layoutGroup2}" VerticalAlignment="Top"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Tên Đường:">
+                    <dxe:TextEdit Name="txtDuong" Width="{Binding ElementName=layoutGroup2}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Phường:">
+                    <dxe:TextEdit Name="txtPhuong" Width="{Binding ElementName=layoutGroup2}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Quận:">
+                    <dxe:TextEdit Name="txtQuan" Width="{Binding ElementName=layoutGroup2}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Thành Phố: ">
+                    <dxe:TextEdit Name="txtTP" Width="{Binding ElementName=layoutGroup2}" AllowNullInput="True"/>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="142,0,140,5" Width="410" Grid.ColumnSpan="2" >
+            <StackPanel Orientation="Horizontal" Height="50" Margin="0,5,0,0" HorizontalAlignment="Center">
+                <Button Name="btnThem"  Width="200" Height="50" Click="btnThem_Click" >
+                    <StackPanel Orientation="Horizontal" Width="Auto" Height="Auto">
+                        <Image  Width="60" Margin="2" Source="{dx:DXImage Image=Apply_32x32.png}" ></Image>
+                        <TextBlock VerticalAlignment="Center" FontSize="25" Margin="2" Text="Đồng Ý"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnXoa"  Width="200" Height="50" Margin="10,0,0,0" Click="btnXoa_Click" >
+                    <StackPanel Orientation="Horizontal" Width="Auto" Height="Auto">
+                        <Image  Width="60" Margin="2" Source="img/images.jpg" ></Image>
+                        <TextBlock VerticalAlignment="Center" FontSize="25" Margin="2" Text="Thoát"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <dxlc:LayoutControl Name="lcMota" Grid.Row="1" Grid.Column="1" >
+            <dxlc:LayoutGroup Header="Mô Tả" Orientation="Vertical"  Height="{Binding ElementName=layoutGroup3}"
+                              Width="{Binding ElementName=lcMota}" UseLayoutRounding="True" View="GroupBox" VerticalAlignment="Top">
+                <dxe:TextEdit Name="txtMota"  />
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+
+    </Grid>
+</Window>

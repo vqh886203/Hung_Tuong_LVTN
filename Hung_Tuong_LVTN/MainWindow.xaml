@@ -1,0 +1,66 @@
+﻿<Window xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  x:Class="Hung_Tuong_LVTN.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+    xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar"
+        xmlns:local="clr-namespace:Hung_Tuong_LVTN"
+        mc:Ignorable="d"
+        Title="TRANG CHỦ" Height="auto" Width="auto" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="{dx:DXImage Image=LoadTheme_32x32.png}">
+    <Grid>
+        <DockPanel >
+            <Border   DockPanel.Dock="Top"   >
+                <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" IsCollapsed="False" RotateWhenVertical="False" AllowQuickCustomization="True" AllowHide="False" AllowCustomizationMenu="False" BarItemDisplayMode="ContentAndGlyph" FontWeight="Bold" FontSize="14"  OpacityMask="Black" BorderThickness="2" HorizontalAlignment="Left" Width="1400">
+                    <dxb:BarButtonItem x:Name="biNV" Content="Nhân Viên" LargeGlyph="{dx:DXImage Image=Female_32x32.png}" Glyph="{dx:DXImage Image=Female_16x16.png}" ItemClick="biNV_ItemClick" GlyphAlignment="Top"/>
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biKH" Content="Khách Hàng" Glyph="{dx:DXImage Image=Cut_16x16.png}" LargeGlyph="{dx:DXImage Image=Team_32x32.png}" ItemClick="biKH_ItemClick_2" GlyphAlignment="Top"  />
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biBDS" Content="Bất Động Sản" Glyph="{dx:DXImage Image=Copy_16x16.png}" LargeGlyph="{dx:DXImage Image=Home_32x32.png}" GlyphAlignment="Top" ItemClick="biBDS_ItemClick"/>
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biKG" Content="   Ký Gửi   " Glyph="{dx:DXImage Image=Paste_16x16.png}" LargeGlyph="{dx:DXImage Image=Paste_32x32.png}" GlyphAlignment="Top"/>
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biHDCN" Content="Chuyển Nhượng" LargeGlyph="{dx:DXImage Image=BOTask_32x32.png}" Glyph="{dx:DXImage Image=BOTask_16x16.png}" GlyphAlignment="Top" />
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarButtonItem x:Name="biHDDC" Content=" Đặt Cọc" GlyphAlignment="Top" LargeGlyph="{dx:DXImage Image=SelectDataMember_32x32.png}" Glyph="{dx:DXImage Image=SelectDataMember_16x16.png}" />
+                    <dxb:BarItemSeparator/>
+                    <dxb:BarItemSeparator/>
+
+                </dxb:ToolBarControl>
+            </Border>
+
+
+
+            <Grid>
+                <dxdo:DockLayoutManager Name="doc">
+                    <dxdo:LayoutGroup>
+                        <dxdo:TabbedGroup ItemWidth="150">
+                            <dxdo:LayoutPanel Name="lpmenu" Caption=" Menu" AllowClose="False" ItemWidth="150">
+                                <dxn:NavBarControl>
+                                    <dxn:NavBarControl.View>
+                                        <dxn:NavigationPaneView/>
+                                    </dxn:NavBarControl.View>
+                                    <dxn:NavBarGroup Header="Giao Diện">
+                                        <dxn:NavBarItem Name="nbiDetail" IsEnabled="False" Content="Chi Tiết" ImageSource="{dx:DXImage Image=IconSetBoxes5_32x32.png}" Click="nbiDetail_Click" />
+                                        <dxn:NavBarItem Name="nbiList" IsEnabled="False" Content="Danh Sách"  ImageSource="{dx:DXImage Image=ContentArrangeInRows_32x32.png}" Click="nbiList_Click"/>
+                                    </dxn:NavBarGroup>
+                                    <dxn:NavBarGroup Header="Tiện Ích">
+
+                                    </dxn:NavBarGroup>
+                                </dxn:NavBarControl>
+                            </dxdo:LayoutPanel>
+
+                        </dxdo:TabbedGroup>
+                        <dxdo:DocumentGroup AllowClose="False" ShowTabHeaders="False" ItemWidth="1.49*">
+                            <dxdo:DocumentPanel Caption="Danh Sách">
+                                <UserControl x:Name="usnv"/>
+                            </dxdo:DocumentPanel>
+                        </dxdo:DocumentGroup>
+                    </dxdo:LayoutGroup>
+                </dxdo:DockLayoutManager>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
