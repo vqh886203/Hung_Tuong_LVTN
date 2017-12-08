@@ -10,7 +10,7 @@
              >
     <Grid>
         <dxlc:LayoutControl Orientation="Vertical" VerticalAlignment="Top">
-            <Label  Content="Danh Sách Nhân Viên" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
+            <Label  Content="Danh Sách Khách Hàng" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
             <dxg:GridControl Name="gridkh" ItemsSource="{Binding DSKH}" >
                 <dxg:GridControl.View>
                     <dxg:TableView AutoWidth="True" AllowEditing="False" />

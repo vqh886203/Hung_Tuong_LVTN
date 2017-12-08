@@ -47,10 +47,10 @@
             </dxlc:LayoutGroup>
             <dxlc:LayoutGroup Header="Accout: " Orientation="Vertical" UseLayoutRounding="True" View="GroupBox">
                 <dxlc:LayoutItem Label="Tài Khoản:" >
-                    <dxe:TextEdit Name="txtTK" EditValue="aaaaaaaa@gmail.com" IsReadOnly="True" />
+                    <dxe:TextEdit Name="txtTK" EditValue="aaaaaaaa@gmail.com" IsReadOnly="True" IsEnabled="False" />
                 </dxlc:LayoutItem>
                 <dxlc:LayoutItem Label="Mật khẩu: ">
-                    <PasswordBox Name="txtMK" Password="*********" ></PasswordBox>
+                    <PasswordBox Name="txtMK" Password="*********" IsEnabled="False" ></PasswordBox>
                 </dxlc:LayoutItem>
             </dxlc:LayoutGroup>
             <StackPanel Orientation="Horizontal" Height="50" Margin="0,5,0,0" HorizontalAlignment="Center">

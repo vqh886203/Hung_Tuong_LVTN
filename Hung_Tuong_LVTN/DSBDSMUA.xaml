@@ -1,0 +1,33 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hung_Tuong_LVTN"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="Hung_Tuong_LVTN.DSBDSMUA"
+        mc:Ignorable="d"
+        Title="DANH SÁCH BẤT ĐỘNG SẢN" WindowStartupLocation="CenterScreen" Icon="{dx:DXImage Image=Home_32x32.png}" >
+    <Window.Resources>
+        <dx:LinqSimpleDataSource x:Key="LinqSimpleDataSource" ContextType="{x:Type local:databaseDataContext}" Path="BatDongSans">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:LinqSimpleDataSource>
+    </Window.Resources>
+    <Grid>
+
+        <dxg:GridControl  SelectionMode="Row" ItemsSource="{Binding Data, Source={StaticResource LinqSimpleDataSource}}"  Name="grid" MouseDoubleClick="grid_MouseDoubleClick">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowEditing="False" AutoWidth="True"/>
+            </dxg:GridControl.View>
+
+            <dxg:GridColumn FieldName="masoqsdd" Header="Mã số quyền sử dụng đất"/>
+            <dxg:GridColumn FieldName="chieurong" Header="Chiều Rộng"/>
+            <dxg:GridColumn FieldName="chieudai" Header="Chiều Dài"/>
+            <dxg:GridColumn FieldName="dongia" Header="Đơn Giá"/>
+            <dxg:GridColumn FieldName="dientich" Header="Diện Tích"/>
+
+        </dxg:GridControl>
+
+    </Grid>
+</Window>

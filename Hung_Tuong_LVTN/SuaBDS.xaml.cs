@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpf.Core.Native;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +31,12 @@ namespace Hung_Tuong_LVTN
             cboTt.Items.Add("Mở Bán");
             cboTt.Items.Add("Hết Hạn");
             cboTt.Items.Add("Đã Bán");
+            cboKh.ItemsSource = dc.KhachHangs.ToList();
+            cboKh.DisplayMemberPath = "hoten";
+            cboKh.SelectedValuePath = "khid";
+            cboLoai.ItemsSource = dc.LoaiBDs.ToList();
+            cboLoai.DisplayMemberPath = "tenloai";
+            cboLoai.SelectedValuePath = "loaiid";
         }
         public void setBDS(int ms)
         {
@@ -49,7 +56,9 @@ namespace Hung_Tuong_LVTN
                     txtRong.Text = a.chieurong.ToString();
                     txtDongia.Text = a.dongia.ToString();
                     txtMota.Text = a.mota;
-                    if (a.hinhanh==null||a.hinhanh.Length<=5) { img.Source = null; }
+                    cboKh.Text = a.KhachHang.hoten;
+                    cboLoai.Text = a.LoaiBD.tenloai;
+                    if (a.hinhanh == null || a.hinhanh.Length <= 5) { img.Source = null; }
                     else
                     {
                         Byte[] byteBLOBData = a.hinhanh.ToArray();
@@ -57,18 +66,7 @@ namespace Hung_Tuong_LVTN
                         img.Source = ImageHelper.CreateImageFromStream(stmBLOBData);
                     }
 
-                    foreach (KhachHang kh in dc.KhachHangs)
-                    {
-                        string strKH = "MS: " + kh.khid + " | Họ Tên: " + kh.hoten;
-                        cboKh.Items.Add(strKH);
-                        cboKh.ItemsSource = kh;
-                        cboKh.Text = "MS: " + a.khid + "| Họ Tên: " + a.KhachHang.hoten;
-                    }
-                    foreach (LoaiBD loai in dc.LoaiBDs)
-                    {
-                        cboLoai.Items.Add(loai.tenloai);
-                        cboLoai.Text = a.LoaiBD.tenloai;
-                    }
+                   
                     cboTt.Text = cboTt.Items[a.tinhtrang.Value].ToString();
 
 
@@ -87,9 +85,9 @@ namespace Hung_Tuong_LVTN
                     bds.dientich = double.Parse(txtDai.Text) * double.Parse(txtRong.Text);
                     bds.dongia = double.Parse(txtDongia.Text);
                     bds.hoahong = double.Parse(txtHh.Text);
-                    
+                    bds.KhachHang = dc.KhachHangs.Single(x => x.khid == int.Parse(cboKh.SelectedValue.ToString()));
+                    bds.LoaiBD = dc.LoaiBDs.Single(x => x.loaiid == int.Parse(cboLoai.SelectedValue.ToString()));
                     bds.tinhtrang = cboTt.SelectedIndex;
-                    //bds.loaiid = cboKh.SelectedIndex + 1;
                     bds.masoqsdd = txtMsqsdd.Text;
                     bds.sonha = txtSonha.Text;
                     bds.tenduong = txtDuong.Text;
@@ -103,7 +101,7 @@ namespace Hung_Tuong_LVTN
                 }
 
             }
-            
+
             this.Close();
         }
 
@@ -122,6 +120,33 @@ namespace Hung_Tuong_LVTN
                 data = ms.ToArray();
             }
             return data;
+        }
+        private void btnThemHinh_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Multiselect = true;
+            if (open.ShowDialog() == true)
+            {
+                List<byte[]> dsHinh = new List<byte[]>();
+                string[] strArray = open.FileNames;
+                for (int i = 0; i < strArray.Length; i++)
+                {
+                    FileStream fs = new FileStream(strArray[i], FileMode.Open, FileAccess.Read);
+                    byte[] data = new byte[fs.Length];
+                    fs.Read(data, 0, Convert.ToInt32(fs.Length));
+                    fs.Close();
+                    dsHinh.Add(data);
+                }
+                for (int j = 0; j < dsHinh.Count; j++)
+                {
+                    HinhBD h = new HinhBD();
+                    h.bdsid = msBDS;
+                    h.hinh = dsHinh[j];
+                    dc.HinhBDs.InsertOnSubmit(h);
+                    dc.SubmitChanges();
+                }
+            }
         }
     }
 }

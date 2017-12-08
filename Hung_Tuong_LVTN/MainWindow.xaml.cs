@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.Xpf.Docking;
+using Hung_Tuong_LVTN.Page;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,8 @@ namespace Hung_Tuong_LVTN
         public UCNVList a;
         public UCNV b ;
         public UCBatDongSan c;
+        DocumentPanel panel = new DocumentPanel();
+        Frame fr = new Frame();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +34,7 @@ namespace Hung_Tuong_LVTN
             usnv.Content = a;
             biNV.IsEnabled = false;
             nbiDetail.IsEnabled = true;
+            
         }
         private void biNV_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
@@ -39,6 +44,8 @@ namespace Hung_Tuong_LVTN
             biNV.IsEnabled = false;
             nbiList.IsEnabled = true;
             biKH.IsEnabled = true;
+            biBDS.IsEnabled = true;
+            lpmenu.IsEnabled = true;
         }
 
         private void biKH_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -83,13 +90,27 @@ namespace Hung_Tuong_LVTN
         private void biBDS_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             c = new UCBatDongSan();
+
             usnv.Content = c;
             biKH.IsEnabled = true;
             biNV.IsEnabled = true;
             biBDS.IsEnabled = false;
             nbiList.IsEnabled = false;
             nbiDetail.IsEnabled = false;
+            fr.Content = new BDSChiTiet();
+            panel.Caption = "Chi Tiết BĐS";
+            panel.Content = fr;
+            if (docGroup.Items.Count < 2)
+            {
+                docGroup.Items.Add(panel);
+            }
             doc.DockController.Hide(lpmenu);
+        }
+
+        private void biHDDC_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            frmThemHDDC a = new frmThemHDDC();
+            a.Show();
         }
     }
 }

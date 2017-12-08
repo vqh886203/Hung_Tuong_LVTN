@@ -35,6 +35,25 @@ namespace Hung_Tuong_LVTN.Model
 
             }).ToList();
         }
+        public List<BatDongSan> getbds()
+        {
+            List<BatDongSan> lst = new List<BatDongSan>();
+            foreach (BatDongSan kh in dc.BatDongSans.Where(x => x.tinhtrang == 1))
+            {
+                lst.Add(kh);
+            }
+            return lst;
+        }
+
+        public BatDongSan timbds(int a)
+        {
+            foreach (BatDongSan b in dc.BatDongSans.Where(x => x.bdsid == a))
+            {
+                return b;
+            }
+            return null;
+        }
+
     }
 
     public class BDSView

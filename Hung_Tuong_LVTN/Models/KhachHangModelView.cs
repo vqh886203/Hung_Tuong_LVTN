@@ -51,6 +51,14 @@ namespace Hung_Tuong_LVTN.Model
             }
             return lst;
         }
+        public KhachHang timkhachhang(int a)
+        {
+            foreach(KhachHang b in dc.KhachHangs.Where(x=>x.khid==a))
+            {
+                return b;
+            }
+            return null;    
+        }
     }
     public class KhachHangView
     {

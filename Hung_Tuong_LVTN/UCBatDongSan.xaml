@@ -21,10 +21,10 @@
         <Label Content="DANH SÁCH BẤT ĐỘNG SẢN " FontWeight="Bold" FontSize="14" Height="30"/>
 
         <Grid>
-            <dxg:GridControl ItemsSource="{Binding DSBDS}" x:Name="grid" SelectionChanged="grid_SelectionChanged"  SelectionMode="Row"  >
+            <dxg:GridControl  ItemsSource="{Binding DSBDS}" x:Name="grid" SelectionChanged="grid_SelectionChanged"  SelectionMode="Row"  >
                 <dxg:GridControl.View>
-                    <dxg:CardView AllowEditing="False" x:Name="Card" CardLayout="Rows" ShowColumnHeaders="True" MouseDoubleClick="Card_MouseDoubleClick"
-                                  AllowColumnMoving="False" FadeSelectionOnLostFocus="True" NavigationStyle="Row"/>
+                    <dxg:CardView  AllowEditing="False" MouseRightButtonDown="Card_MouseRightButtonDown" x:Name="Card" CardLayout="Rows" ShowColumnHeaders="True" MouseDoubleClick="Card_MouseDoubleClick"
+                                  AllowColumnMoving="False" FadeSelectionOnLostFocus="True" NavigationStyle="Row" AllowGrouping="False" ShowGroupPanel="False"/>
                 </dxg:GridControl.View>
                 <dxg:GridColumn FieldName="hinhanh"  Header="Hình Ảnh" FixedWidth="False" HorizontalHeaderContentAlignment="Center">
                     <dxg:GridColumn.EditSettings>

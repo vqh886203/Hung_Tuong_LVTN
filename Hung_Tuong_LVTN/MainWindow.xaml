@@ -24,7 +24,7 @@
                     <dxb:BarItemSeparator/>
                     <dxb:BarButtonItem x:Name="biHDCN" Content="Chuyển Nhượng" LargeGlyph="{dx:DXImage Image=BOTask_32x32.png}" Glyph="{dx:DXImage Image=BOTask_16x16.png}" GlyphAlignment="Top" />
                     <dxb:BarItemSeparator/>
-                    <dxb:BarButtonItem x:Name="biHDDC" Content=" Đặt Cọc" GlyphAlignment="Top" LargeGlyph="{dx:DXImage Image=SelectDataMember_32x32.png}" Glyph="{dx:DXImage Image=SelectDataMember_16x16.png}" />
+                    <dxb:BarButtonItem x:Name="biHDDC" Content=" Đặt Cọc" GlyphAlignment="Top" LargeGlyph="{dx:DXImage Image=SelectDataMember_32x32.png}" Glyph="{dx:DXImage Image=SelectDataMember_16x16.png}" ItemClick="biHDDC_ItemClick" />
                     <dxb:BarItemSeparator/>
                     <dxb:BarItemSeparator/>
 
@@ -53,10 +53,11 @@
                             </dxdo:LayoutPanel>
 
                         </dxdo:TabbedGroup>
-                        <dxdo:DocumentGroup AllowClose="False" ShowTabHeaders="False" ItemWidth="1.49*">
-                            <dxdo:DocumentPanel Caption="Danh Sách">
+                        <dxdo:DocumentGroup AllowDrop="False" x:Name="docGroup" AllowClose="False" Caption="Document"  ItemWidth="1.49*">
+                            <dxdo:DocumentPanel AllowDrop="False" x:Name="docUC" AllowClose="False" Caption="Danh Sách" TabBackgroundColor="#FF4F81BD">
                                 <UserControl x:Name="usnv"/>
                             </dxdo:DocumentPanel>
+
                         </dxdo:DocumentGroup>
                     </dxdo:LayoutGroup>
                 </dxdo:DockLayoutManager>

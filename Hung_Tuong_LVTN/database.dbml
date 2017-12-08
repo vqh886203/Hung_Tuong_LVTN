@@ -19,6 +19,7 @@
       <Column Name="phuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="khid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="loaiid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BatDongSan_HinhBD" Member="HinhBDs" ThisKey="bdsid" OtherKey="bdsid" Type="HinhBD" />
       <Association Name="KhachHang_BatDongSan" Member="KhachHang" ThisKey="khid" OtherKey="khid" Type="KhachHang" IsForeignKey="true" />
       <Association Name="LoaiBD_BatDongSan" Member="LoaiBD" ThisKey="loaiid" OtherKey="loaiid" Type="LoaiBD" IsForeignKey="true" />
     </Type>
@@ -63,6 +64,14 @@
       <Column Name="loaiid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tenloai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="LoaiBD_BatDongSan" Member="BatDongSans" ThisKey="loaiid" OtherKey="loaiid" Type="BatDongSan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhBDS" Member="HinhBDs">
+    <Type Name="HinhBD">
+      <Column Name="hinhid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hinh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="bdsid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BatDongSan_HinhBD" Member="BatDongSan" ThisKey="bdsid" OtherKey="bdsid" Type="BatDongSan" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -55,6 +55,11 @@ namespace Hung_Tuong_LVTN.Model
                 quyen=x.quyen.Value
             }).ToList();
         }
+        public void timnvtheotk(string tk)
+        {
+           
+
+        }
        
     }
 

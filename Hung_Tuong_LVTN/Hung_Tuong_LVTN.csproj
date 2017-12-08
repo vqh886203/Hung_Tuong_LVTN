@@ -74,8 +74,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DangNhap.xaml.cs">
+      <DependentUpon>DangNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DSBDSMUA.xaml.cs">
+      <DependentUpon>DSBDSMUA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DSKHMUA.xaml.cs">
+      <DependentUpon>DSKHMUA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmNVdangnhap.xaml.cs">
+      <DependentUpon>frmNVdangnhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemHDDC.xaml.cs">
+      <DependentUpon>frmThemHDDC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemKH.xaml.cs">
+      <DependentUpon>frmThemKH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery.xaml.cs">
+      <DependentUpon>Gallery.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NVlistKH.xaml.cs">
       <DependentUpon>NVlistKH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\BDSChiTiet.xaml.cs">
+      <DependentUpon>BDSChiTiet.xaml</DependentUpon>
     </Compile>
     <Compile Include="SuaBDS.xaml.cs">
       <DependentUpon>SuaBDS.xaml</DependentUpon>
@@ -86,6 +110,9 @@
     <Compile Include="UCBatDongSan.xaml.cs">
       <DependentUpon>UCBatDongSan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCHDDC.xaml.cs">
+      <DependentUpon>UCHDDC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCKH.xaml.cs">
       <DependentUpon>UCKH.xaml</DependentUpon>
     </Compile>
@@ -95,6 +122,34 @@
     <Compile Include="UCNVList.xaml.cs">
       <DependentUpon>UCNVList.xaml</DependentUpon>
     </Compile>
+    <Page Include="DangNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DSBDSMUA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DSKHMUA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmNVdangnhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmThemHDDC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmThemKH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gallery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,6 +171,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page\BDSChiTiet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SuaBDS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCBatDongSan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCHDDC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +250,24 @@
     <Resource Include="img\administrator.png" />
     <Resource Include="img\Ampeross-Qetto-2-Add-contact.ico" />
     <Resource Include="img\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\square_login_form.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\user-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\lock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo chuan.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

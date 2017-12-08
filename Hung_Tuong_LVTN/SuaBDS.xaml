@@ -44,10 +44,10 @@
                         <dxe:ComboBoxEdit  Name="cboTt" Width="{Binding ElementName=layoutGroup}"/>
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem IsRequired="True" Label="Sở Hữu Của:">
-                        <dxe:ComboBoxEdit Name="cboKh" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
+                        <ComboBox Name="cboKh" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem IsRequired="True" Label="Loại BĐS: ">
-                        <dxe:ComboBoxEdit Name="cboLoai" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
+                        <ComboBox Name="cboLoai" Width="{Binding ElementName=layoutGroup}" IsReadOnly="True" />
                     </dxlc:LayoutItem>
                     <dxlc:LayoutItem   Label="Hoa Hồng:">
                         <dxe:TextEdit Name="txtHh" MaskType="Numeric" Width="{Binding ElementName=layoutGroup}"/>
@@ -97,9 +97,15 @@
             </StackPanel>
         </StackPanel>
         <dxlc:LayoutControl Name="lcMota" Grid.Row="1" Grid.Column="1" >
-            <dxlc:LayoutGroup Header="Mô Tả" Orientation="Vertical"  Height="{Binding ElementName=layoutGroup3}"
-                              Width="{Binding ElementName=lcMota}" UseLayoutRounding="True" View="GroupBox" VerticalAlignment="Top">
-                <dxe:TextEdit Name="txtMota"  />
+            <dxlc:LayoutGroup Header="Mô Tả" Orientation="Vertical"  
+                              Width="{Binding ElementName=lcMota}" Height="170" UseLayoutRounding="True" View="GroupBox" VerticalAlignment="Top">
+                <dxe:TextEdit Name="txtMota" Margin="0,0,0,10"   />
+                <Button Height="50" Width="Auto" HorizontalAlignment="Center" Name="btnThemHinh" Click="btnThemHinh_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="60" Source="{dx:DXImage Image=ImportImage_32x32.png}"></Image>
+                        <TextBlock VerticalAlignment="Center" FontSize="25" Margin="2" Text="Thêm Hình"></TextBlock>
+                    </StackPanel>
+                </Button>
             </dxlc:LayoutGroup>
         </dxlc:LayoutControl>
 

@@ -42,6 +42,9 @@ namespace Hung_Tuong_LVTN
     partial void InsertLoaiBD(LoaiBD instance);
     partial void UpdateLoaiBD(LoaiBD instance);
     partial void DeleteLoaiBD(LoaiBD instance);
+    partial void InsertHinhBD(HinhBD instance);
+    partial void UpdateHinhBD(HinhBD instance);
+    partial void DeleteHinhBD(HinhBD instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -105,6 +108,14 @@ namespace Hung_Tuong_LVTN
 				return this.GetTable<LoaiBD>();
 			}
 		}
+		
+		public System.Data.Linq.Table<HinhBD> HinhBDs
+		{
+			get
+			{
+				return this.GetTable<HinhBD>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BatDongSan")]
@@ -146,6 +157,8 @@ namespace Hung_Tuong_LVTN
 		private System.Nullable<int> _khid;
 		
 		private System.Nullable<int> _loaiid;
+		
+		private EntitySet<HinhBD> _HinhBDs;
 		
 		private EntityRef<KhachHang> _KhachHang;
 		
@@ -193,6 +206,7 @@ namespace Hung_Tuong_LVTN
 		
 		public BatDongSan()
 		{
+			this._HinhBDs = new EntitySet<HinhBD>(new Action<HinhBD>(this.attach_HinhBDs), new Action<HinhBD>(this.detach_HinhBDs));
 			this._KhachHang = default(EntityRef<KhachHang>);
 			this._LoaiBD = default(EntityRef<LoaiBD>);
 			OnCreated();
@@ -546,6 +560,19 @@ namespace Hung_Tuong_LVTN
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BatDongSan_HinhBD", Storage="_HinhBDs", ThisKey="bdsid", OtherKey="bdsid")]
+		public EntitySet<HinhBD> HinhBDs
+		{
+			get
+			{
+				return this._HinhBDs;
+			}
+			set
+			{
+				this._HinhBDs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_BatDongSan", Storage="_KhachHang", ThisKey="khid", OtherKey="khid", IsForeignKey=true)]
 		public KhachHang KhachHang
 		{
@@ -632,6 +659,18 @@ namespace Hung_Tuong_LVTN
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_HinhBDs(HinhBD entity)
+		{
+			this.SendPropertyChanging();
+			entity.BatDongSan = this;
+		}
+		
+		private void detach_HinhBDs(HinhBD entity)
+		{
+			this.SendPropertyChanging();
+			entity.BatDongSan = null;
 		}
 	}
 	
@@ -1495,6 +1534,157 @@ namespace Hung_Tuong_LVTN
 		{
 			this.SendPropertyChanging();
 			entity.LoaiBD = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HinhBDS")]
+	public partial class HinhBD : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _hinhid;
+		
+		private System.Data.Linq.Binary _hinh;
+		
+		private System.Nullable<int> _bdsid;
+		
+		private EntityRef<BatDongSan> _BatDongSan;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnhinhidChanging(int value);
+    partial void OnhinhidChanged();
+    partial void OnhinhChanging(System.Data.Linq.Binary value);
+    partial void OnhinhChanged();
+    partial void OnbdsidChanging(System.Nullable<int> value);
+    partial void OnbdsidChanged();
+    #endregion
+		
+		public HinhBD()
+		{
+			this._BatDongSan = default(EntityRef<BatDongSan>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hinhid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int hinhid
+		{
+			get
+			{
+				return this._hinhid;
+			}
+			set
+			{
+				if ((this._hinhid != value))
+				{
+					this.OnhinhidChanging(value);
+					this.SendPropertyChanging();
+					this._hinhid = value;
+					this.SendPropertyChanged("hinhid");
+					this.OnhinhidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hinh", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary hinh
+		{
+			get
+			{
+				return this._hinh;
+			}
+			set
+			{
+				if ((this._hinh != value))
+				{
+					this.OnhinhChanging(value);
+					this.SendPropertyChanging();
+					this._hinh = value;
+					this.SendPropertyChanged("hinh");
+					this.OnhinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bdsid", DbType="Int")]
+		public System.Nullable<int> bdsid
+		{
+			get
+			{
+				return this._bdsid;
+			}
+			set
+			{
+				if ((this._bdsid != value))
+				{
+					if (this._BatDongSan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnbdsidChanging(value);
+					this.SendPropertyChanging();
+					this._bdsid = value;
+					this.SendPropertyChanged("bdsid");
+					this.OnbdsidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BatDongSan_HinhBD", Storage="_BatDongSan", ThisKey="bdsid", OtherKey="bdsid", IsForeignKey=true)]
+		public BatDongSan BatDongSan
+		{
+			get
+			{
+				return this._BatDongSan.Entity;
+			}
+			set
+			{
+				BatDongSan previousValue = this._BatDongSan.Entity;
+				if (((previousValue != value) 
+							|| (this._BatDongSan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BatDongSan.Entity = null;
+						previousValue.HinhBDs.Remove(this);
+					}
+					this._BatDongSan.Entity = value;
+					if ((value != null))
+					{
+						value.HinhBDs.Add(this);
+						this._bdsid = value.bdsid;
+					}
+					else
+					{
+						this._bdsid = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("BatDongSan");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/administrator.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/ampeross-qetto-2-add-contact.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/images.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/logo%20chuan.jpg")]
 
 

@@ -42,6 +42,13 @@ namespace Hung_Tuong_LVTN
             eBDS.Show();
 
         }
+        private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BDSView card = grid.SelectedItem as BDSView;
+            Gallery gallery = new Gallery();
+            gallery.loadData(card.bdsid);
+            gallery.Show();
+        }
 
     }
 }

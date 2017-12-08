@@ -29,31 +29,35 @@ namespace Hung_Tuong_LVTN
 
         private void tableView_RowUpdated(object sender, RowEventArgs e)
         {
-            NhanVienViewList row = (NhanVienViewList)grid.SelectedItem;
-            if (row == null) return;
-            grid.RefreshData();
-
-            foreach (NhanVien i in dc.NhanViens.Where(x => x.nvid == row.nvid))
+            try
             {
-                if (i != null)
+                NhanVienViewList row = (NhanVienViewList)grid.SelectedItem;
+                if (row == null) return;
+                grid.RefreshData();
+
+                foreach (NhanVien i in dc.NhanViens.Where(x => x.nvid == row.nvid))
                 {
-                    i.tennv = row.tennv;
-                    if (row.gioitinh == "Nam")
-                        i.gioitinh = true;
-                    else i.gioitinh = false;
-                    i.hinh = ConvertToBytes(ToImage(row.hinh.ToArray()));
-                    i.diachi = row.diachi;
-                    i.doanhthu = row.doanhthu;
-                    i.ngaysinh = row.ngaysinh;
-                    i.matkhau = row.matkhau;
-                    i.email = row.email;
-                    i.sdt = row.sdt;
-                    i.quyen = row.quyen;
-                    dc.SubmitChanges();
-                    MessageBox.Show("Đã cập nhật thành công !");
+                    if (i != null)
+                    {
+                        i.tennv = row.tennv;
+                        if (row.gioitinh == "Nam")
+                            i.gioitinh = true;
+                        else i.gioitinh = false;
+                        i.hinh = ConvertToBytes(ToImage(row.hinh.ToArray()));
+                        i.diachi = row.diachi;
+                        i.doanhthu = row.doanhthu;
+                        i.ngaysinh = row.ngaysinh;
+                        i.matkhau = row.matkhau;
+                        i.email = row.email;
+                        i.sdt = row.sdt;
+                        i.quyen = row.quyen;
+                        dc.SubmitChanges();
+                        MessageBox.Show("Đã cập nhật thành công !");
+                    }
                 }
+                grid.ItemsSource = new NhanVienModelView().DSNVList;
             }
-            grid.ItemsSource = new NhanVienModelView().DSNVList;
+            catch { return; }
         }
         public static byte[] ConvertToBytes(BitmapImage bitmapImage)
         {
