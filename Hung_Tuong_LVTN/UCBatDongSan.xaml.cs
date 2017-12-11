@@ -45,7 +45,7 @@ namespace Hung_Tuong_LVTN
         private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             BDSView card = grid.SelectedItem as BDSView;
-            frmGallery gallery = new frmGallery();
+            Gallery gallery = new Gallery();
             gallery.loadData(card.bdsid);
             gallery.Show();
         }

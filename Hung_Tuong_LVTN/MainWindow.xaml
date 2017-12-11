@@ -16,11 +16,11 @@
                 <dxb:ToolBarControl Caption="Edit" DockPanel.Dock="Top" IsCollapsed="False" RotateWhenVertical="False" AllowQuickCustomization="True" AllowHide="False" AllowCustomizationMenu="False" BarItemDisplayMode="ContentAndGlyph" FontWeight="Bold" FontSize="14"  OpacityMask="Black" BorderThickness="2" HorizontalAlignment="Left" Width="1400">
                     <dxb:BarButtonItem x:Name="biNV" Content="Nhân Viên" LargeGlyph="{dx:DXImage Image=Female_32x32.png}" Glyph="{dx:DXImage Image=Female_16x16.png}" ItemClick="biNV_ItemClick" GlyphAlignment="Top"/>
                     <dxb:BarItemSeparator/>
-                    <dxb:BarButtonItem x:Name="biKH" Content="Khách Hàng" Glyph="{dx:DXImage Image=Cut_16x16.png}" LargeGlyph="{dx:DXImage Image=Team_32x32.png}" ItemClick="biKH_ItemClick" GlyphAlignment="Top"  />
+                    <dxb:BarButtonItem x:Name="biKH" Content="Khách Hàng" Glyph="{dx:DXImage Image=Cut_16x16.png}" LargeGlyph="{dx:DXImage Image=Team_32x32.png}" ItemClick="biKH_ItemClick_2" GlyphAlignment="Top"  />
                     <dxb:BarItemSeparator/>
                     <dxb:BarButtonItem x:Name="biBDS" Content="Bất Động Sản" Glyph="{dx:DXImage Image=Copy_16x16.png}" LargeGlyph="{dx:DXImage Image=Home_32x32.png}" GlyphAlignment="Top" ItemClick="biBDS_ItemClick"/>
                     <dxb:BarItemSeparator/>
-                    <dxb:BarButtonItem x:Name="biKG" Content="   Ký Gửi   " Glyph="{dx:DXImage Image=Paste_16x16.png}" LargeGlyph="{dx:DXImage Image=Paste_32x32.png}" GlyphAlignment="Top" ItemClick="biKG_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="biKG" Content="   Ký Gửi   " Glyph="{dx:DXImage Image=Paste_16x16.png}" LargeGlyph="{dx:DXImage Image=Paste_32x32.png}" GlyphAlignment="Top"/>
                     <dxb:BarItemSeparator/>
                     <dxb:BarButtonItem x:Name="biHDCN" Content="Chuyển Nhượng" LargeGlyph="{dx:DXImage Image=BOTask_32x32.png}" Glyph="{dx:DXImage Image=BOTask_16x16.png}" GlyphAlignment="Top" />
                     <dxb:BarItemSeparator/>

@@ -50,14 +50,10 @@
     <Reference Include="DevExpress.Xpf.LayoutControl.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.NavBar.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Themes.DXStyle.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,7 +68,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -88,31 +83,23 @@
     <Compile Include="DSKHMUA.xaml.cs">
       <DependentUpon>DSKHMUA.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmGallery.xaml.cs">
-      <DependentUpon>frmGallery.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frmNVdangnhap.xaml.cs">
       <DependentUpon>frmNVdangnhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmThemHDDC.xaml.cs">
       <DependentUpon>frmThemHDDC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmThemHDKyGui.xaml.cs">
-      <DependentUpon>frmThemHDKyGui.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frmThemKH.xaml.cs">
       <DependentUpon>frmThemKH.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\CrpHDDC.cs" />
-    <Compile Include="Models\HDKGModelView.cs" />
+    <Compile Include="Gallery.xaml.cs">
+      <DependentUpon>Gallery.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NVlistKH.xaml.cs">
       <DependentUpon>NVlistKH.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\BDSChiTiet.xaml.cs">
       <DependentUpon>BDSChiTiet.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RP\WindowRPhddc.xaml.cs">
-      <DependentUpon>WindowRPhddc.xaml</DependentUpon>
     </Compile>
     <Compile Include="SuaBDS.xaml.cs">
       <DependentUpon>SuaBDS.xaml</DependentUpon>
@@ -125,9 +112,6 @@
     </Compile>
     <Compile Include="UCHDDC.xaml.cs">
       <DependentUpon>UCHDDC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UCHDKyGui.xaml.cs">
-      <DependentUpon>UCHDKyGui.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCKH.xaml.cs">
       <DependentUpon>UCKH.xaml</DependentUpon>
@@ -150,10 +134,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmGallery.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="frmNVdangnhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,11 +142,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmThemHDKyGui.xaml">
+    <Page Include="frmThemKH.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmThemKH.xaml">
+    <Page Include="Gallery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,10 +175,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RP\WindowRPhddc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SuaBDS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,10 +188,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCHDDC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCHDKyGui.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +221,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="RP\ReportHDDC.rdlc" />
     <None Include="database.dbml.layout">
       <DependentUpon>database.dbml</DependentUpon>
     </None>
@@ -263,7 +234,6 @@
       <LastGenOutput>database.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\Hung_Tuong_LVTN.Models.CrpHDDC.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

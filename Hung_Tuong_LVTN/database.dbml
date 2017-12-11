@@ -20,8 +20,6 @@
       <Column Name="khid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="loaiid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BatDongSan_HinhBD" Member="HinhBDs" ThisKey="bdsid" OtherKey="bdsid" Type="HinhBD" />
-      <Association Name="BatDongSan_HDDatCoc" Member="HDDatCocs" ThisKey="bdsid" OtherKey="bdsid" Type="HDDatCoc" />
-      <Association Name="BatDongSan_HopDongKyGui" Member="HopDongKyGuis" ThisKey="bdsid" OtherKey="bdsid" Type="HopDongKyGui" />
       <Association Name="KhachHang_BatDongSan" Member="KhachHang" ThisKey="khid" OtherKey="khid" Type="KhachHang" IsForeignKey="true" />
       <Association Name="LoaiBD_BatDongSan" Member="LoaiBD" ThisKey="loaiid" OtherKey="loaiid" Type="LoaiBD" IsForeignKey="true" />
     </Type>
@@ -41,7 +39,6 @@
       <Column Name="quyen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="hinh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="NhanVien_KhachHang" Member="KhachHangs" ThisKey="nvid" OtherKey="nvid" Type="KhachHang" />
-      <Association Name="NhanVien_HopDongKyGui" Member="HopDongKyGuis" ThisKey="nvid" OtherKey="nvid" Type="HopDongKyGui" />
     </Type>
   </Table>
   <Table Name="dbo.KhachHang" Member="KhachHangs">
@@ -59,8 +56,6 @@
       <Column Name="mota" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="nvid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="KhachHang_BatDongSan" Member="BatDongSans" ThisKey="khid" OtherKey="khid" Type="BatDongSan" />
-      <Association Name="KhachHang_HDDatCoc" Member="HDDatCocs" ThisKey="khid" OtherKey="khid" Type="HDDatCoc" />
-      <Association Name="KhachHang_HopDongKyGui" Member="HopDongKyGuis" ThisKey="khid" OtherKey="khid" Type="HopDongKyGui" />
       <Association Name="NhanVien_KhachHang" Member="NhanVien" ThisKey="nvid" OtherKey="nvid" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
@@ -77,33 +72,6 @@
       <Column Name="hinh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="bdsid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BatDongSan_HinhBD" Member="BatDongSan" ThisKey="bdsid" OtherKey="bdsid" Type="BatDongSan" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HDDatCoc" Member="HDDatCocs">
-    <Type Name="HDDatCoc">
-      <Column Name="dcid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="khid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bdsid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ngaylaphd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="tinhtrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ngayhethan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="BatDongSan_HDDatCoc" Member="BatDongSan" ThisKey="bdsid" OtherKey="bdsid" Type="BatDongSan" IsForeignKey="true" />
-      <Association Name="KhachHang_HDDatCoc" Member="KhachHang" ThisKey="khid" OtherKey="khid" Type="KhachHang" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HopDongKyGui" Member="HopDongKyGuis">
-    <Type Name="HopDongKyGui">
-      <Column Name="kgid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nvid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="khid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bdsid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="chiphidv" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ngaybatdau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ngayketthuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="giatri" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="BatDongSan_HopDongKyGui" Member="BatDongSan" ThisKey="bdsid" OtherKey="bdsid" Type="BatDongSan" IsForeignKey="true" />
-      <Association Name="KhachHang_HopDongKyGui" Member="KhachHang" ThisKey="khid" OtherKey="khid" Type="KhachHang" IsForeignKey="true" />
-      <Association Name="NhanVien_HopDongKyGui" Member="NhanVien" ThisKey="nvid" OtherKey="nvid" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
