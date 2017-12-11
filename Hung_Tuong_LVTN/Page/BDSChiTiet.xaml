@@ -8,9 +8,9 @@
         xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-      Title="CHI TIẾT BẤT ĐỘNG SẢN" >
+      Title="CHI TIẾT BẤT ĐỘNG SẢN">
 
-    <Grid Name="LayoutRoot" >
+    <Grid Name="LayoutRoot">
         <Grid.DataContext>
             <local:BatDongSanModel/>
         </Grid.DataContext>
@@ -26,10 +26,10 @@
             <StackPanel.Resources>
                 <local:ListingPositionToBoolConverter x:Key="ListingPositionToBoolConverter"></local:ListingPositionToBoolConverter>
             </StackPanel.Resources>
-            <!--<Button  x:Name="btnRefresh" Click="btnRefresh_Click" Margin="0,0,5,0">
+            <Button  x:Name="btnRefresh" Click="btnRefresh_Click" Margin="0,0,5,0">
                 <Image IsEnabled="{Binding Converter={StaticResource ListingPositionToBoolConverter}, ConverterParameter=IsNotFirst}"
                        Source="{dx:DXImage Image=Refresh_32x32.png}"/>
-            </Button>-->
+            </Button>
             <Button  x:Name="btnBack" Click="btnBack_Click">
                 <Image IsEnabled="{Binding Converter={StaticResource ListingPositionToBoolConverter}, ConverterParameter=IsNotFirst}"
                        Source="{dx:DXImage Image=Backward_32x32.png}"/>
@@ -41,27 +41,8 @@
             </Button>
         </StackPanel>
         <dxlc:LayoutControl  Orientation="Horizontal" Grid.Row="1" Padding="10"  >
-            <dxe:ImageEdit Source="{Binding hinhanh}" x:Name="img"   />
-            <dxlc:LayoutGroup View="GroupBox" Header="Diện Tích"  Orientation="Vertical"  >
-                <dxlc:LayoutItem  Label="Chiều Dài: ">
-                    <TextBlock Text="{Binding chieudai}"/>
-                </dxlc:LayoutItem>
-                <dxlc:LayoutItem Label="Chiều Rộng: ">
-                    <TextBlock Text="{Binding chieurong}"/>
-                </dxlc:LayoutItem>
-                <dxlc:LayoutItem Label="Đơn Giá: ">
-                    <TextBlock Text="{Binding dongia}"/>
-                </dxlc:LayoutItem>
-                <dxlc:LayoutItem Label="Tổng Tiền: ">
-                    <TextBlock Text="{Binding tongtien}"/>
-                </dxlc:LayoutItem>
-                <dxlc:LayoutItem Label="Diện Tích: ">
-                    <TextBlock Text="{Binding dientich}"/>
-                </dxlc:LayoutItem>
-                <dxlc:LayoutItem Label="Mô tả:  ">
-                    <TextBlock Text="{Binding mota}" />
-                </dxlc:LayoutItem>
-            </dxlc:LayoutGroup>
+            <dxe:ImageEdit Source="{Binding hinhanh}" x:Name="img" ShowMenu="False" Stretch="Uniform"   />
+
         </dxlc:LayoutControl>
         <StackPanel Grid.Row="2" >
             <Grid>
@@ -69,9 +50,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <dxlc:LayoutControl    Grid.ColumnSpan="2" Orientation="Horizontal">
-                    <dxlc:LayoutGroup Header="Vị Trí" Orientation="Vertical" 
-                                   View="GroupBox"   >
+                <dxlc:LayoutControl   Background="Transparent" Grid.ColumnSpan="2" Orientation="Horizontal" AllowDrop="False">
+                    <dxlc:LayoutGroup Header="Vị Trí" Orientation="Vertical" View="GroupBox"
+                                  UseLayoutRounding="True"    >
                         <dxlc:LayoutItem Label="Số Nhà:" >
                             <TextBlock Text="{Binding sonha}" />
                         </dxlc:LayoutItem>
@@ -88,7 +69,27 @@
                             <TextBlock Text="{Binding thanhpho}"/>
                         </dxlc:LayoutItem>
                     </dxlc:LayoutGroup>
-                    <dxlc:LayoutGroup Header="Thông Tin" View="GroupBox" Name="layoutGroup" Orientation="Vertical" >
+                    <dxlc:LayoutGroup  Header="Diện Tích"  Orientation="Vertical"  View="GroupBox" ScrollBars="Auto">
+                        <dxlc:LayoutItem  Label="Chiều Dài: ">
+                            <TextBlock Text="{Binding chieudai}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Chiều Rộng: ">
+                            <TextBlock Text="{Binding chieurong}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Đơn Giá: ">
+                            <TextBlock Text="{Binding dongia}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Tổng Tiền: ">
+                            <TextBlock Text="{Binding tongtien}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Diện Tích: ">
+                            <TextBlock Text="{Binding dientich}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Mô tả:  ">
+                            <TextBlock Text="{Binding mota}" TextWrapping="Wrap" />
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="Thông Tin"  Name="layoutGroup" Orientation="Vertical" View="GroupBox" >
                         <dxlc:LayoutItem  Label="Tình Trạng:">
                             <TextBlock  Text="{Binding tinhtrang}"  />
                         </dxlc:LayoutItem>

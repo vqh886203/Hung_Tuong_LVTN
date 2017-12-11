@@ -12,6 +12,7 @@ namespace Hung_Tuong_LVTN.Page
     /// </summary>
     public partial class BDSChiTiet
     {
+        databaseDataContext data = new databaseDataContext();
         public BDSChiTiet()
         {
             InitializeComponent();
@@ -39,7 +40,32 @@ namespace Hung_Tuong_LVTN.Page
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-
+            DanhSachBDS.ds = list();
+            ActiveListingIndex = 0;
+        }
+        public List<BatDongSanModel> list()
+        {
+            return data.BatDongSans.Select(x => new BatDongSanModel
+            {
+                bdsid = x.bdsid,
+                dongia = String.Format("{0:.##}" + " triệu", x.dongia.Value/1000000),
+                mota = x.mota,
+                masoqsdd = x.masoqsdd,
+                sonha = x.sonha,
+                tenduong = x.tenduong,
+                phuong = x.phuong,
+                quan = x.quan,
+                thanhpho = x.thanhpho,
+                hoahong = String.Format("{0:.##}" + " %", x.hoahong.Value),
+                tinhtrang = x.tinhtrang + "",
+                sohuu = x.KhachHang.hoten,
+                loai = x.LoaiBD.tenloai,
+                hinhanh = x.hinhanh.ToString() == null ? null : x.hinhanh.ToArray(),
+                dientich = String.Format("{0:.##}" + " m2", x.dientich.Value),
+                chieurong = String.Format("{0:.##}" + " m", x.chieurong.Value),
+                chieudai = String.Format("{0:.##}" + " m", x.chieudai.Value),
+                tongtien = String.Format("{0:.##}" + " tỷ", (x.dientich.Value * x.dongia.Value) / 1000000000),
+            }).ToList();
         }
     }
     public class ListingPositionToBoolConverter : IValueConverter
@@ -80,10 +106,10 @@ namespace Hung_Tuong_LVTN.Page
     public static class DanhSachBDS
     {
         public static databaseDataContext dc = new databaseDataContext();
-        public static readonly List<BatDongSanModel> ds = dc.BatDongSans.Select(x => new BatDongSanModel
+        public static List<BatDongSanModel> ds = dc.BatDongSans.Select(x => new BatDongSanModel
         {
             bdsid = x.bdsid,
-            dongia = String.Format("{0:.##}" + " triệu", x.dongia.Value),
+            dongia = String.Format("{0:.##}" + " triệu", x.dongia.Value/1000000),
             mota = x.mota,
             masoqsdd = x.masoqsdd,
             sonha = x.sonha,
@@ -99,7 +125,7 @@ namespace Hung_Tuong_LVTN.Page
             dientich = String.Format("{0:.##}" + " m2", x.dientich.Value),
             chieurong = String.Format("{0:.##}" + " m", x.chieurong.Value),
             chieudai = String.Format("{0:.##}" + " m", x.chieudai.Value),
-            tongtien = String.Format("{0:.##}" + " tỷ", (x.dientich.Value * x.dongia.Value) / 1000),
+            tongtien = String.Format("{0:.##}" + " tỷ", (x.dientich.Value * x.dongia.Value) / 1000000000),
         }).ToList();
     }
 }

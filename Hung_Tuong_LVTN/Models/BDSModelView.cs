@@ -21,14 +21,14 @@ namespace Hung_Tuong_LVTN.Model
             return dc.BatDongSans.Select(x => new BDSView
             {
                 bdsid = x.bdsid,
-                dongia = String.Format("{0:.##}" + " triệu", x.dongia.Value),
+                dongia = String.Format("{0:.##}" + " triệu", x.dongia.Value/1000000),
                 diachi = x.sonha + ", " + x.tenduong + "\n" 
                 + "P. " + x.phuong
                 + ", Q. " + x.quan + ", TP. " + x.thanhpho,
                 dientich = String.Format("{0:.##}" + " m2", x.dientich.Value),
                 chieurong = String.Format("{0:.##}" + " m", x.chieurong.Value),
                 chieudai = String.Format("{0:.##}" + " m", x.chieudai.Value),
-                tongtien = String.Format("{0:.##}" + " tỷ", (x.dientich.Value * x.dongia.Value) / 1000),
+                tongtien = String.Format("{0:.##}" + " tỷ", (x.dientich.Value * x.dongia.Value)/1000000000),
                 hinhanh = x.hinhanh.ToString() == null ? null : x.hinhanh.ToArray(),
                 tenkh = x.KhachHang.hoten,
                 tenloai = x.LoaiBD.tenloai

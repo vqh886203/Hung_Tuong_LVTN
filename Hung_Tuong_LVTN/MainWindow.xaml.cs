@@ -25,6 +25,7 @@ namespace Hung_Tuong_LVTN
         public UCNVList a;
         public UCNV b ;
         public UCBatDongSan c;
+        public UCHDKyGui d;
         DocumentPanel panel = new DocumentPanel();
         Frame fr = new Frame();
         public MainWindow()
@@ -46,15 +47,28 @@ namespace Hung_Tuong_LVTN
             biKH.IsEnabled = true;
             biBDS.IsEnabled = true;
             lpmenu.IsEnabled = true;
+            biKG.IsEnabled = true;
+            if (docGroup.Items.Count >= 2)
+            {
+                docGroup.Items.Remove(panel);
+            }
         }
 
         private void biKH_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            usnv.Content = null;
+            UCKH uskh = new UCKH();
+            usnv.Content = uskh;
             biNV.IsEnabled = true;
             biKH.IsEnabled = false;
-            nbiDetail.IsEnabled = false;
             nbiList.IsEnabled = false;
+            nbiDetail.IsEnabled = false;
+            biBDS.IsEnabled = true;
+            biKG.IsEnabled = true;
+            if (docGroup.Items.Count >= 2)
+            {
+                docGroup.Items.Remove(panel);
+            }
+            doc.DockController.Hide(lpmenu);
         }
 
         private void nbiDetail_Click(object sender, System.EventArgs e)
@@ -77,16 +91,6 @@ namespace Hung_Tuong_LVTN
         }
 
 
-        private void biKH_ItemClick_2(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            UCKH uskh = new UCKH();
-            usnv.Content = uskh;
-            biNV.IsEnabled = true;
-            biKH.IsEnabled = false;
-            nbiList.IsEnabled = false;
-            nbiDetail.IsEnabled = false;
-            biBDS.IsEnabled = true;
-        }
         private void biBDS_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             c = new UCBatDongSan();
@@ -97,8 +101,10 @@ namespace Hung_Tuong_LVTN
             biBDS.IsEnabled = false;
             nbiList.IsEnabled = false;
             nbiDetail.IsEnabled = false;
+            biKG.IsEnabled = true;
             fr.Content = new BDSChiTiet();
             panel.Caption = "Chi Tiết BĐS";
+            panel.AllowClose = false;
             panel.Content = fr;
             if (docGroup.Items.Count < 2)
             {
@@ -109,8 +115,24 @@ namespace Hung_Tuong_LVTN
 
         private void biHDDC_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            biKG.IsEnabled = true;
             frmThemHDDC a = new frmThemHDDC();
             a.Show();
+        }
+
+        private void biKG_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            d = new UCHDKyGui();
+
+            usnv.Content = d;
+            biKG.IsEnabled = false;
+            biKH.IsEnabled = true;
+            biNV.IsEnabled = true;
+            biBDS.IsEnabled = true;
+            if (docGroup.Items.Count == 2)
+            {
+                docGroup.Items.Remove(panel);
+            }
         }
     }
 }

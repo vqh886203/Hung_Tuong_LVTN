@@ -1,0 +1,11 @@
+﻿<Window x:Class="Hung_Tuong_LVTN.RP.WindowRPhddc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:r="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="WindowRPhddc" Height="700" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <WindowsFormsHost>
+            <r:ReportViewer x:Name="rv" />
+        </WindowsFormsHost>
+    </Grid>
+</Window>
